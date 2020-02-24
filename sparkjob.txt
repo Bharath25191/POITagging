@@ -1,0 +1,1 @@
+spark-submit  /Users/bd/Desktop/EQWorks.py   /Users/bd/Desktop/ws-data-spark-master/data/DataSample.csv /Users/bd/Desktop/ws-data-spark-master/data/POIList.csv

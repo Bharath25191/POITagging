@@ -1,0 +1,39 @@
+Analysis, Assumptions and Conclusion of the POI task. 
+
+Analysis:
+
+Once the data was curated, plotting the Basemap gave a fair idea about the distribution and spread of the requests. 
+I was particularly interested with the cluster of points surrounding POIs. I used Google Maps to look up some of the coordinates of major cluster areas and it was no surprise that these came from major cities. 
+
+The three cluster centers (POIs) were located at Edmonton, Montreal and Moncton. With Edmonton and Montreal taking up major chunk of the data (approximately 9k each), leaving only 450 data points to the sparsely populated areas of NV and NB.
+
+For Edmonton, major chunk of the requests came from the source (Edmonton) and nearby city Calgary, almost 75 % data points were within a 250 km radius. Requests also came in from Vancouver and other BC cities. 
+
+While the Montreal cluster contained as many points as Edmonton, the main reason for its inferior cluster quality was because, the majority of its requests came from Toronto and GTA areas, which are at an average distance of 500 KM. Montreal had a total of 400 points at source ( 1800 less in comparison to Edmonton), this heavily impacted its cluster quality.
+
+Moncton was the least popular cluster because most of its requests were scattered, and there was only 100 points at source. It also had the worst density amongst the three. This can be attributed to the fact that there were only 450 points assigned to it, which is very low for a place with a radius of ~800km. 
+
+Assumptions:
+
+I carried out my analysis with the assumption that the POIs are business centers (firm, business, shopping center), which are to be recommended to people based on the proximity of their location to these business centers and the time at which a request (or a signal) was captured from their device. 
+
+I also noted that if we had previous check-in data of users for a particular POI, we could leverage that data to suggest new POI locations near to them based on their interests (using Collaborative filtering), but since we didn't have that data, I assumed that this project would serve as a pilot to span off such an application in the future, based on user responses to the POI recommendations. 
+
+In the limited data that was provided, since we already mapped the point to cluster locations, the two interesting fields for model building were the distance and check-in time. 
+
+I assumed that we are not considering these requests as online requests and considered distance to be a key factor governing the performance of POI. Recommendations made to requests coming in from shorter distances will therefore have a better chance of conversion. Similarly, I assumed that the request time is a major driver for POI performance as businesses usually shoot during the peak hours. Collecting more data with regards to the industry type would be useful to design time metrics which further improves the model quality. 
+
+
+Testing Steps:
+1. Tested the cluster quality through Silhouette score, however that provided information about the overall quality (and not individual clusters).
+2. Based on the readings from blogs and research papers applied a mathematical model to the three POI centers (clusters).
+3. Scaled the values between -10 to 10 using a range normalizer.
+4. Plotted visualizations, calculated the percentile scores of the clusters to analyze the model results. 
+5. These analysis were in line with the model results.
+6. The model can be tested against unseen data, and is expected to perform well. Adding more features will further enhance the model quality.  
+
+
+Conclusion:
+
+I hypothesized that the cluster which has bulk of its requests near the source should be performing the best, as there is a higher probability for a request to actually visit the recommended POI. The mathematical model and the visualizations support this argument.
+
