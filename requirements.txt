@@ -42,7 +42,7 @@ pyparsing==2.4.6
 pyproj==2.4.1
 pyrsistent==0.15.7
 pyshp==2.1.0
-pyspark==2.4.5
+pyspark==3.2.2
 python-dateutil==2.8.1
 pytz==2019.3
 pyzmq==18.1.1
